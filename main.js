@@ -1,41 +1,79 @@
-const timeTranslation = [
-    {countryId: "de", countryName: "Germany", timeZone: "CET", utcZone: "+01:00"},
-    {countryId: "ch", countryName: "Switzerland", timeZone: "CET"},
-]
+const { DateTime } = luxon;
+
+// const timeTranslation = [
+//   {timeZoneName: "Europe/Berlin", timeZone: "CET/CEST", country: "Germany"},
+//   {timeZoneName: "Europe/Paris", timeZone: "CET/CEST", country: "France"},
+//   {timeZoneName: "Europe/Rome", timeZone: "CET/CEST", country: "Italy"},
+//   {timeZoneName: "Europe/Madrid", timeZone: "CET/CEST", country: "Spain"},
+//   {timeZoneName: "Europe/Lisbon", timeZone: "WET/WEST", country: "Portugal"},
+//   {timeZoneName: "Europe/London", timeZone: "GMT/BST", country: "United Kingdom"},
+//   {timeZoneName: "Europe/Dublin", timeZone: "GMT/IST", country: "Ireland"},
+//   {timeZoneName: "Europe/Amsterdam", timeZone: "CET/CEST", country: "Netherlands"},
+//   {timeZoneName: "Europe/Brussels", timeZone: "CET/CEST", country: "Belgium"},
+//   {timeZoneName: "Europe/Vienna", timeZone: "CET/CEST", country: "Austria"},
+//   {timeZoneName: "Europe/Zurich", timeZone: "CET/CEST", country: "Switzerland"},
+//   {timeZoneName: "Europe/Stockholm", timeZone: "CET/CEST", country: "Sweden"},
+//   {timeZoneName: "Europe/Oslo", timeZone: "CET/CEST", country: "Norway"},
+//   {timeZoneName: "Europe/Copenhagen", timeZone: "CET/CEST", country: "Denmark"},
+//   {timeZoneName: "Europe/Helsinki", timeZone: "EET/EEST", country: "Finland"},
+//   {timeZoneName: "Europe/Tallinn", timeZone: "EET/EEST", country: "Estonia"},
+//   {timeZoneName: "Europe/Riga", timeZone: "EET/EEST", country: "Latvia"},
+//   {timeZoneName: "Europe/Vilnius", timeZone: "EET/EEST", country: "Lithuania"},
+//   {timeZoneName: "Europe/Warsaw", timeZone: "CET/CEST", country: "Poland"},
+//   {timeZoneName: "Europe/Prague", timeZone: "CET/CEST", country: "Czech Republic"},
+//   {timeZoneName: "Europe/Budapest", timeZone: "CET/CEST", country: "Hungary"},
+//   {timeZoneName: "Europe/Bratislava", timeZone: "CET/CEST", country: "Slovakia"},
+//   {timeZoneName: "Europe/Belgrade", timeZone: "CET/CEST", country: "Serbia"},
+//   {timeZoneName: "Europe/Zagreb", timeZone: "CET/CEST", country: "Croatia"},
+//   {timeZoneName: "Europe/Sofia", timeZone: "EET/EEST", country: "Bulgaria"},
+//   {timeZoneName: "Europe/Bucharest", timeZone: "EET/EEST", country: "Romania"},
+//   {timeZoneName: "Europe/Athens", timeZone: "EET/EEST", country: "Greece"},
+//   {timeZoneName: "Europe/Istanbul", timeZone: "TRT", country: "Turkey"},
+//   {timeZoneName: "Europe/Moscow", timeZone: "MSK", country: "Russia (Western)"},
+//   {timeZoneName: "Europe/Kiev", timeZone: "EET/EEST", country: "Ukraine"},
+//   {timeZoneName: "Europe/Minsk", timeZone: "MSK", country: "Belarus"},
+// ];
+
 
 function reset() {
     const selectedTimezone = document.getElementById("timezone-selector");
     const selectedCountry = document.getElementById("country-selector");
-    const selectedDate = document.getElementById("date-selector");
-    const selectedTime = document.getElementById("time-selector");
+    const selectedDateTime = document.getElementById("datetime-selector");
+    const resultCountry = document.getElementById("output-country");
+    const resultTimezone = document.getElementById("output-timezone");
+    const resultTimeDisplay = document.getElementById("time-output");
+
     toggleResultCard("hide");
     selectedTimezone.selectedIndex = 0;
     selectedCountry.selectedIndex = 0;
-    selectedDate.value = "";
-    selectedTime.value = "";
+    selectedDateTime.value = "";
+    resultCountry.textContent = "";
+    resultTimezone.textContent = "";
+    resultTimeDisplay.textContent = "";
+
 }
 
-function calculate() {
+function displayResults(resultTime) {
     const resultCountry = document.getElementById("output-country");
     const resultTimezone = document.getElementById("output-timezone");
-    const selectedDate = document.getElementById("date-selector").value;
-    const selectedTime = document.getElementById("time-selector").value;
-    console.log(selectedDate);
-    console.log(selectedTime);
-    let foundCountryInfo = getCountryInfo();
-    resultCountry.textContent = foundCountryInfo.countryName;
-    resultTimezone.innerHTML = `${foundCountryInfo.timeZone} (UTC ${foundCountryInfo.utcZone})`;
+    const targetTimeZone = document.getElementById("country-selector");
+    const resultTimeDisplay = document.getElementById("time-output");
+    const timeZoneAbbreviation = targetTimeZone.options[targetTimeZone.selectedIndex].dataset.timezone;
+    resultCountry.textContent = targetTimeZone.value;
+    resultTimezone.textContent = timeZoneAbbreviation;
+    resultTimeDisplay.textContent = resultTime;
+
     toggleResultCard("show");
 }
 
-function getCountryInfo() {
-    const selectedCountry = document.getElementById("country-selector");
-    for (let i = 0; i < timeTranslation.length; i++) {
-        if (timeTranslation[i].countryId === selectedCountry.value) {
-            return timeTranslation[i];
-        }
-    }
-}
+// function getCountryInfo() {
+//     const selectedCountry = document.getElementById("country-selector");
+//     for (let i = 0; i < timeTranslation.length; i++) {
+//         if (timeTranslation[i].countryId === selectedCountry.value) {
+//             return timeTranslation[i];
+//         }
+//     }
+// }
 
 function toggleResultCard(status) {
     const resultCard = document.getElementById("result-card");
@@ -47,4 +85,17 @@ function toggleResultCard(status) {
             resultCard.classList.remove("show");
             break;
     }
+}
+
+function calculate() {
+    const inputDate = document.getElementById("datetime-selector").value;
+    const originalTimeZone = document.getElementById("timezone-selector").value;
+    const targetTimeZone = document.getElementById("country-selector").value;
+    console.log(originalTimeZone);
+    console.log(targetTimeZone);
+    const originalTime = DateTime.fromISO(inputDate, { zone: originalTimeZone });
+    const targetTime = originalTime.setZone(targetTimeZone);
+    const formattedTime = (targetTime.toFormat("yyyy-MM-dd HH:mm")); // "2025-07-08 02:57"
+    displayResults(formattedTime);
+
 }
