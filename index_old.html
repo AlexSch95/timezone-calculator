@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>time-translator</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bss-overrides.css">
+    <link rel="stylesheet" href="assets/css/Footer-Dark-icons.css">
+</head>
+
+<body class="position-sticky">
+    <main>
+        <nav class="navbar navbar-expand-md bg-dark py-3" data-bs-theme="dark">
+            <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span
+                        class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                            viewBox="0 0 16 16" class="bi bi-clock">
+                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z">
+                            </path>
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"></path>
+                        </svg></span><span>Timezone Calculator</span></a><button data-bs-toggle="collapse"
+                    class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-5">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"></li>
+                        <li class="nav-item"></li>
+                        <li class="nav-item"></li>
+                    </ul><a class="btn btn-primary ms-md-2" role="button" href="https://github.com/AlexSch95">My GitHub</a>
+                </div>
+            </div>
+        </nav>
+        <section class="position-relative py-4 py-xl-5">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4" style="width: 566px;height: auto;max-height: auto;">
+                        <div class="card mb-5">
+                            <div class="card-body justify-content-center p-sm-5" style="height: auto;">
+                                    <p><label for="selected-timezone" class="form-label justify-content-center" style="margin-top: 7px;margin-left: 5px;">Time:&nbsp;</label>
+                                        <input class="justify-content-center" id="selected-datetime" type="datetime-local" style="margin-top: 7px;margin-left: 5px;">
+                                        <select id="selected-timezone" style="filter: blur(0px);margin-top: 7px;margin-left: 5px;width: auto;height: 28px;">
+                                            <option value="none">Select a timezone</option>
+                                            <option value="BIT">BIT (UTC-12:00) Baker Island Time</option>
+                                            <option value="IDLW">IDLW (UTC-12:00) International Date Line West</option>
+                                            <option value="NUT">NUT (UTC-11:00) Niue Time</option>
+                                            <option value="SST">SST (UTC-11:00) Samoa Standard Time</option>
+                                            <option value="HST">HST (UTC-10:00) Hawaii-Aleutian Standard Time</option>
+                                            <option value="CKT">CKT (UTC-10:00) Cook Island Time</option>
+                                            <option value="TAHT">TAHT (UTC-10:00) Tahiti Time</option>
+                                            <option value="MART">MART (UTC-09:30) Marquesas Time</option>
+                                            <option value="AKST">AKST (UTC-09:00) Alaska Standard Time</option>
+                                            <option value="GAMT">GAMT (UTC-09:00) Gambier Time</option>
+
+                                            <!-- UTC-08:00 to UTC-04:00 -->
+                                            <option value="PST">PST (UTC-08:00) Pacific Standard Time</option>
+                                            <option value="MST">MST (UTC-07:00) Mountain Standard Time</option>
+                                            <option value="CST">CST (UTC-06:00) Central Standard Time</option>
+                                            <option value="EST">EST (UTC-05:00) Eastern Standard Time</option>
+                                            <option value="AST">AST (UTC-04:00) Atlantic Standard Time</option>
+
+                                            <!-- UTC-03:30 to UTC+00:00 -->
+                                            <option value="NST">NST (UTC-03:30) Newfoundland Standard Time</option>
+                                            <option value="BRT">BRT (UTC-03:00) Brasília Time</option>
+                                            <option value="AZOT">AZOT (UTC-01:00) Azores Time</option>
+                                            <option value="GMT">GMT (UTC±00:00) Greenwich Mean Time</option>
+
+                                            <!-- UTC+01:00 to UTC+05:45 -->
+                                            <option value="CET">CET (UTC+01:00) Central European Time</option>
+                                            <option value="EET">EET (UTC+02:00) Eastern European Time</option>
+                                            <option value="MSK">MSK (UTC+03:00) Moscow Time</option>
+                                            <option value="GST">GST (UTC+04:00) Gulf Standard Time</option>
+                                            <option value="PKT">PKT (UTC+05:00) Pakistan Standard Time</option>
+                                            <option value="IST">IST (UTC+05:30) India Standard Time</option>
+                                            <option value="NPT">NPT (UTC+05:45) Nepal Time</option>
+
+                                            <!-- UTC+06:00 to UTC+10:30 -->
+                                            <option value="BST">BST (UTC+06:00) Bangladesh Standard Time</option>
+                                            <option value="MMT">MMT (UTC+06:30) Myanmar Time</option>
+                                            <option value="ICT">ICT (UTC+07:00) Indochina Time</option>
+                                            <option value="CST">CST (UTC+08:00) China Standard Time</option>
+                                            <option value="JST">JST (UTC+09:00) Japan Standard Time</option>
+                                            <option value="AEST">AEST (UTC+10:00) Australian Eastern Standard Time
+                                            </option>
+                                            <option value="LHST">LHST (UTC+10:30) Lord Howe Standard Time</option>
+
+                                            <!-- UTC+11:00 to UTC+14:00 -->
+                                            <option value="NFT">NFT (UTC+11:00) Norfolk Island Time</option>
+                                            <option value="NZST">NZST (UTC+12:00) New Zealand Standard Time</option>
+                                            <option value="CHAST">CHAST (UTC+12:45) Chatham Standard Time</option>
+                                            <option value="LINT">LINT (UTC+14:00) Line Islands Time</option>
+                                        </select></p>
+                                    <p class="justify-content-center">
+                                        <label class="form-label" style="margin-top: 7px;margin-left: 5px;">Translate to:&nbsp;</label>
+                                        <select id="selected-country" style="text-align: left;filter: invert(0%);margin-top: 7px;margin-left: 5px;width: auto;height: 28px;">
+                                            <option value="none" selected="selected">Please select a Country</option>
+                                            <option value="af">Afghanistan</option>
+                                            <option value="al">Albania</option>
+                                            <option value="dz">Algeria</option>
+                                            <option value="ad">Andorra</option>
+                                            <option value="ao">Angola</option>
+                                            <option value="ag">Antigua and Barbuda</option>
+                                            <option value="ar">Argentina</option>
+                                            <option value="am">Armenia</option>
+                                            <option value="au">Australia</option>
+                                            <option value="at">Austria</option>
+                                            <option value="az">Azerbaijan</option>
+                                            <option value="bs">Bahamas</option>
+                                            <option value="bh">Bahrain</option>
+                                            <option value="bd">Bangladesh</option>
+                                            <option value="bb">Barbados</option>
+                                            <option value="by">Belarus</option>
+                                            <option value="be">Belgium</option>
+                                            <option value="bz">Belize</option>
+                                            <option value="bj">Benin</option>
+                                            <option value="bt">Bhutan</option>
+                                            <option value="bo">Bolivia</option>
+                                            <option value="ba">Bosnia and Herzegovina</option>
+                                            <option value="bw">Botswana</option>
+                                            <option value="br">Brazil</option>
+                                            <option value="bn">Brunei</option>
+                                            <option value="bg">Bulgaria</option>
+                                            <option value="bf">Burkina Faso</option>
+                                            <option value="bi">Burundi</option>
+                                            <option value="cv">Cabo Verde</option>
+                                            <option value="kh">Cambodia</option>
+                                            <option value="cm">Cameroon</option>
+                                            <option value="ca">Canada</option>
+                                            <option value="cf">Central African Republic</option>
+                                            <option value="td">Chad</option>
+                                            <option value="cl">Chile</option>
+                                            <option value="cn">China</option>
+                                            <option value="co">Colombia</option>
+                                            <option value="km">Comoros</option>
+                                            <option value="cg">Congo (Brazzaville)</option>
+                                            <option value="cd">Congo (Kinshasa)</option>
+                                            <option value="cr">Costa Rica</option>
+                                            <option value="ci">Côte d'Ivoire</option>
+                                            <option value="hr">Croatia</option>
+                                            <option value="cu">Cuba</option>
+                                            <option value="cy">Cyprus</option>
+                                            <option value="cz">Czech Republic</option>
+                                            <option value="dk">Denmark</option>
+                                            <option value="dj">Djibouti</option>
+                                            <option value="dm">Dominica</option>
+                                            <option value="do">Dominican Republic</option>
+                                            <option value="ec">Ecuador</option>
+                                            <option value="eg">Egypt</option>
+                                            <option value="sv">El Salvador</option>
+                                            <option value="gq">Equatorial Guinea</option>
+                                            <option value="er">Eritrea</option>
+                                            <option value="ee">Estonia</option>
+                                            <option value="sz">Eswatini</option>
+                                            <option value="et">Ethiopia</option>
+                                            <option value="fj">Fiji</option>
+                                            <option value="fi">Finland</option>
+                                            <option value="fr">France</option>
+                                            <option value="ga">Gabon</option>
+                                            <option value="gm">Gambia</option>
+                                            <option value="ge">Georgia</option>
+                                            <option value="de">Germany</option>
+                                            <option value="gh">Ghana</option>
+                                            <option value="gr">Greece</option>
+                                            <option value="gd">Grenada</option>
+                                            <option value="gt">Guatemala</option>
+                                            <option value="gn">Guinea</option>
+                                            <option value="gw">Guinea-Bissau</option>
+                                            <option value="gy">Guyana</option>
+                                            <option value="ht">Haiti</option>
+                                            <option value="hn">Honduras</option>
+                                            <option value="hu">Hungary</option>
+                                            <option value="is">Iceland</option>
+                                            <option value="in">India</option>
+                                            <option value="id">Indonesia</option>
+                                            <option value="ir">Iran</option>
+                                            <option value="iq">Iraq</option>
+                                            <option value="ie">Ireland</option>
+                                            <option value="il">Israel</option>
+                                            <option value="it">Italy</option>
+                                            <option value="jm">Jamaica</option>
+                                            <option value="jp">Japan</option>
+                                            <option value="jo">Jordan</option>
+                                            <option value="kz">Kazakhstan</option>
+                                            <option value="ke">Kenya</option>
+                                            <option value="ki">Kiribati</option>
+                                            <option value="kp">Korea (North)</option>
+                                            <option value="kr">Korea (South)</option>
+                                            <option value="xk">Kosovo</option>
+                                            <option value="kw">Kuwait</option>
+                                            <option value="kg">Kyrgyzstan</option>
+                                            <option value="la">Laos</option>
+                                            <option value="lv">Latvia</option>
+                                            <option value="lb">Lebanon</option>
+                                            <option value="ls">Lesotho</option>
+                                            <option value="lr">Liberia</option>
+                                            <option value="ly">Libya</option>
+                                            <option value="li">Liechtenstein</option>
+                                            <option value="lt">Lithuania</option>
+                                            <option value="lu">Luxembourg</option>
+                                            <option value="mg">Madagascar</option>
+                                            <option value="mw">Malawi</option>
+                                            <option value="my">Malaysia</option>
+                                            <option value="mv">Maldives</option>
+                                            <option value="ml">Mali</option>
+                                            <option value="mt">Malta</option>
+                                            <option value="mh">Marshall Islands</option>
+                                            <option value="mr">Mauritania</option>
+                                            <option value="mu">Mauritius</option>
+                                            <option value="mx">Mexico</option>
+                                            <option value="fm">Micronesia</option>
+                                            <option value="md">Moldova</option>
+                                            <option value="mc">Monaco</option>
+                                            <option value="mn">Mongolia</option>
+                                            <option value="me">Montenegro</option>
+                                            <option value="ma">Morocco</option>
+                                            <option value="mz">Mozambique</option>
+                                            <option value="mm">Myanmar</option>
+                                            <option value="na">Namibia</option>
+                                            <option value="nr">Nauru</option>
+                                            <option value="np">Nepal</option>
+                                            <option value="nl">Netherlands</option>
+                                            <option value="nz">New Zealand</option>
+                                            <option value="ni">Nicaragua</option>
+                                            <option value="ne">Niger</option>
+                                            <option value="ng">Nigeria</option>
+                                            <option value="mk">North Macedonia</option>
+                                            <option value="no">Norway</option>
+                                            <option value="om">Oman</option>
+                                            <option value="pk">Pakistan</option>
+                                            <option value="pw">Palau</option>
+                                            <option value="pa">Panama</option>
+                                            <option value="pg">Papua New Guinea</option>
+                                            <option value="py">Paraguay</option>
+                                            <option value="pe">Peru</option>
+                                            <option value="ph">Philippines</option>
+                                            <option value="pl">Poland</option>
+                                            <option value="pt">Portugal</option>
+                                            <option value="qa">Qatar</option>
+                                            <option value="ro">Romania</option>
+                                            <option value="ru">Russia</option>
+                                            <option value="rw">Rwanda</option>
+                                            <option value="kn">Saint Kitts and Nevis</option>
+                                            <option value="lc">Saint Lucia</option>
+                                            <option value="vc">Saint Vincent and the Grenadines</option>
+                                            <option value="ws">Samoa</option>
+                                            <option value="sm">San Marino</option>
+                                            <option value="st">Sao Tome and Principe</option>
+                                            <option value="sa">Saudi Arabia</option>
+                                            <option value="sn">Senegal</option>
+                                            <option value="rs">Serbia</option>
+                                            <option value="sc">Seychelles</option>
+                                            <option value="sl">Sierra Leone</option>
+                                            <option value="sg">Singapore</option>
+                                            <option value="sk">Slovakia</option>
+                                            <option value="si">Slovenia</option>
+                                            <option value="sb">Solomon Islands</option>
+                                            <option value="so">Somalia</option>
+                                            <option value="za">South Africa</option>
+                                            <option value="ss">South Sudan</option>
+                                            <option value="es">Spain</option>
+                                            <option value="lk">Sri Lanka</option>
+                                            <option value="sd">Sudan</option>
+                                            <option value="sr">Suriname</option>
+                                            <option value="se">Sweden</option>
+                                            <option value="ch">Switzerland</option>
+                                            <option value="sy">Syria</option>
+                                            <option value="tw">Taiwan</option>
+                                            <option value="tj">Tajikistan</option>
+                                            <option value="tz">Tanzania</option>
+                                            <option value="th">Thailand</option>
+                                            <option value="tl">Timor-Leste</option>
+                                            <option value="tg">Togo</option>
+                                            <option value="to">Tonga</option>
+                                            <option value="tt">Trinidad and Tobago</option>
+                                            <option value="tn">Tunisia</option>
+                                            <option value="tr">Turkey</option>
+                                            <option value="tm">Turkmenistan</option>
+                                            <option value="tv">Tuvalu</option>
+                                            <option value="ug">Uganda</option>
+                                            <option value="ua">Ukraine</option>
+                                            <option value="ae">United Arab Emirates</option>
+                                            <option value="gb">United Kingdom</option>
+                                            <option value="us">United States</option>
+                                            <option value="uy">Uruguay</option>
+                                            <option value="uz">Uzbekistan</option>
+                                            <option value="vu">Vanuatu</option>
+                                            <option value="va">Vatican City</option>
+                                            <option value="ve">Venezuela</option>
+                                            <option value="vn">Vietnam</option>
+                                            <option value="ye">Yemen</option>
+                                            <option value="zm">Zambia</option>
+                                            <option value="zw">Zimbabwe</option>
+                                        </select></p>
+                                <div class="text-center justify-content-center"><button
+                                        class="btn btn-primary btn-sm w-50" type="button"
+                                        style="transform-origin: center;margin-right: 5px;margin-left: 5px;">Calculate</button>
+                                        <button class="btn btn-primary btn-sm w-25" type="button" style="transform-origin: center;margin-right: 5px;margin-left: 5px;" onclick="reset()">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4" style="width: 566px;">
+                        <div class="card mb-5">
+                            <div class="card-body justify-content-center p-sm-5">
+                                <h4 class="text-center">Result</h4>
+                                <form method="post">
+                                    <div class="mb-3"></div>
+                                    <div class="mb-3"></div>
+                                    <div class="mb-3"></div>
+                                    <div></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="text-center bg-body position-sticky" data-bs-theme="dark">
+        <div class="container py-4 py-lg-5">
+            <p class="text-body mb-0">Copyright © 2025 GitHub/AlexSch95</p>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
