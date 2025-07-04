@@ -31,20 +31,62 @@
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
-                        <div class="card mb-5">
-                            <div class="card-body justify-content-center p-sm-5">
+                        <div class="card mb-2">
+                            <div class="card-body justify-content-center">
                                 <h3 class="text-center m-3 card-content h5">Have you ever googled stuff like 
                                     <p class="h2" style="margin-top: 15px; margin-bottom: 15px"><strong>"What is 12:00 PST in German Time?"</strong></p>
                                     Then this tool is for you.</h3><hr>
                                 <p class="text-center m-3 card-title small">Input Date, Time, Timezone and the Country you want to convert the time to</p>
                                 <div>
-                                    <p><label for="datetime-selector" class="w-50">Enter Date and Time:</label><input class="w-50 text-center" id="datetime-selector" type="datetime-local"></p>
+                                    <p><label for="datetime-selector" class="w-25">Enter Date/Time:</label><input class="w-75 text-center" id="datetime-selector" type="datetime-local"></p>
                                     <p><select class="w-100" id="timezone-selector">
-                                            <option value="none" selected="">Please select a Timezone</option>
-                                            <option value="America/New_York">EST/EDT</option>
+                                            <option value="" selected="">Please select a Timezone</option>
+                                            <!-- North & Central America -->
+                                            <option value="America/Chicago">CST/CDT (Central Time – US & Canada)</option>
+                                            <option value="America/Mexico_City">CST/CDT (Central Time – Mexico)</option>
+                                            <option value="America/Havana">CST/CDT (Cuba Standard Time)</option>
+
+                                            <option value="America/New_York">EST/EDT (Eastern Time – US & Canada)</option>
+                                            <option value="America/Jamaica">EST (Jamaica Standard Time, no DST)</option>
+                                            <option value="America/Cancun">EST (Eastern Standard Time – Mexico)</option>
+
+                                            <option value="America/Denver">MST/MDT (Mountain Time – US & Canada)</option>
+                                            <option value="America/Phoenix">MST (Mountain Standard Time – Arizona, no DST)</option>
+
+                                            <option value="America/Los_Angeles">PST/PDT (Pacific Time – US & Canada)</option>
+                                            <option value="America/Tijuana">PST/PDT (Pacific Time – Mexico)</option>
+
+                                            <option value="America/Anchorage">AKST/AKDT (Alaska Time)</option>
+                                            <option value="Pacific/Honolulu">HST (Hawaii Standard Time, no DST)</option>
+
+                                            <!-- South America -->
+                                            <option value="America/Santiago">CLT/CLST (Chile Standard Time)</option>
+                                            <option value="America/Sao_Paulo">BRT/BRST (Brasília Time)</option>
+                                            <option value="America/Buenos_Aires">ART (Argentina Time, no DST)</option>
+
+                                            <!-- Europe & Africa -->
+                                            <option value="Europe/London">GMT/BST (UK Time)</option>
+                                            <option value="Africa/Cairo">EET/EEST (Eastern European Time)</option>
+                                            <option value="Europe/Berlin">CET/CEST (Central European Time)</option>
+                                            <option value="Europe/Moscow">MSK (Moscow Standard Time, no DST)</option>
+                                            <option value="Africa/Johannesburg">SAST (South Africa Standard Time, no DST)</option>
+
+                                            <!-- Middle East & Asia -->
+                                            <option value="Asia/Dubai">GST (Gulf Standard Time, no DST)</option>
+                                            <option value="Asia/Tehran">IRST/IRDT (Iran Standard Time)</option>
+                                            <option value="Asia/Kolkata">IST (India Standard Time, no DST)</option>
+                                            <option value="Asia/Shanghai">CST (China Standard Time, no DST)</option>
+                                            <option value="Asia/Tokyo">JST (Japan Standard Time, no DST)</option>
+                                            <option value="Asia/Seoul">KST (Korea Standard Time, no DST)</option>
+
+                                            <!-- Australia & Pacific -->
+                                            <option value="Australia/Sydney">AEST/AEDT (Australian Eastern Time)</option>
+                                            <option value="Australia/Adelaide">ACST/ACDT (Australian Central Time)</option>
+                                            <option value="Australia/Perth">AWST (Australian Western Time, no DST)</option>
+                                            <option value="Pacific/Auckland">NZST/NZDT (New Zealand Time)</option>
                                         </select></p>
                                     <p><select class="w-100" id="country-selector">
-                                            <option value="none" selected="">Select a Country to calculate to</option>
+                                            <option value="" selected="">Select a Country to calculate to</option>
                                             <option value="Europe/Berlin" data-timezone="CET/CEST">Germany</option>
                                             <option value="Europe/Paris" data-timezone="CET/CEST">France</option>
                                             <option value="Europe/Rome" data-timezone="CET/CEST">Italy</option>
@@ -95,6 +137,16 @@
                                 <p class="card-text"><span>The Result Time is:&nbsp;</span><span class="text-primary" id="time-output"></span></p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div id="customAlertOverlay" class="custom-alert-overlay">
+                <div class="custom-alert-box">
+                    <div class="custom-alert-content">
+                    <p id="customAlertMessage">This is a custom alert message.</p>
+                    </div>
+                    <div class="custom-alert-footer">
+                    <button class="btn btn-primary" id="customAlertOK">OK</button>
                     </div>
                 </div>
             </div>

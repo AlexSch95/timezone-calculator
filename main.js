@@ -59,7 +59,7 @@ function displayResults(resultTime) {
     const targetTimeZone = document.getElementById("country-selector");
     const resultTimeDisplay = document.getElementById("time-output");
     const timeZoneAbbreviation = targetTimeZone.options[targetTimeZone.selectedIndex].dataset.timezone;
-    resultCountry.textContent = targetTimeZone.value;
+    resultCountry.textContent = targetTimeZone.options[targetTimeZone.selectedIndex].textContent;
     resultTimezone.textContent = timeZoneAbbreviation;
     resultTimeDisplay.textContent = resultTime;
 
@@ -91,11 +91,28 @@ function calculate() {
     const inputDate = document.getElementById("datetime-selector").value;
     const originalTimeZone = document.getElementById("timezone-selector").value;
     const targetTimeZone = document.getElementById("country-selector").value;
-    console.log(originalTimeZone);
-    console.log(targetTimeZone);
+    
+    if (!inputDate || !originalTimeZone || !targetTimeZone) {
+        customAlert("Please enter Date/Time, select a Timezone and select a Country to calculate the Time for")
+        return;
+    }
     const originalTime = DateTime.fromISO(inputDate, { zone: originalTimeZone });
     const targetTime = originalTime.setZone(targetTimeZone);
     const formattedTime = (targetTime.toFormat("yyyy-MM-dd HH:mm")); // "2025-07-08 02:57"
     displayResults(formattedTime);
 
 }
+
+function customAlert(message) {
+    const overlay = document.getElementById('customAlertOverlay');
+    const messageElement = document.getElementById('customAlertMessage');
+    const okButton = document.getElementById('customAlertOK');
+    messageElement.textContent = message;
+    overlay.style.display = 'flex';
+    okButton.onclick = function() {
+        overlay.style.display = 'none';
+    }
+}
+
+// Usage example:
+// customAlert("This is my custom alert message!");

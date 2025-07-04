@@ -45,3 +45,48 @@
   --bs-btn-disabled-border-color: #fd550d;
 }
 
+.custom-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.custom-alert-box {
+  background-color: rgb(34, 34, 34);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  max-width: 80%;
+  overflow: hidden;
+}
+
+.custom-alert-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.custom-alert-footer {
+  padding: 10px;
+  text-align: center;
+  background-color: rgb(34, 34, 34);
+}
+
+.custom-alert-footer button {
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
