@@ -18,13 +18,6 @@ Ein modernes Tool zur intelligenten Zeitumrechnung und -verarbeitung.
 - **Zeit-Bibliothek**: Luxon.js
 - **Styling**: Bootstrap CSS + Custom CSS
 
-## 🛠️ Installation
-
-```bash
-npm install
-npm run dev
-```
-
 ## 📦 Verwendung
 
 1. Geben Sie Ihre Zeit ein
