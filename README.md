@@ -1,4 +1,4 @@
-# ![WebApp](https://i.imgur.com/E89B43k.png)
+
 # Time Translator 🕒
 
 Ein modernes Tool zur intelligenten Zeitumrechnung und -verarbeitung.
