@@ -114,5 +114,3 @@ function customAlert(message) {
     }
 }
 
-// Usage example:
-// customAlert("This is my custom alert message!");

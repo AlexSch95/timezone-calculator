@@ -1,13 +1,42 @@
 # ![WebApp](https://i.imgur.com/E89B43k.png)
-# Timezone Calculator
-<table>
-<tr>
-<td>
-  A webapp using luxon library to convert a date and time based on one timezone into the time in a selected country
-</td>
-</tr>
-</table>
+# Time Translator 🕒
 
+Ein modernes Tool zur intelligenten Zeitumrechnung und -verarbeitung.
 
-## GitHub Pages
-Live Demo: https://alexsch95.github.io/timezone-calculator/
+🌐 **[Live Demo](https://alexsch95.github.io/time-translator/)**
+
+## 🚀 Funktionen
+
+- Benutzerfreundliche Oberfläche
+- Flexible Zeitformate
+- Echtzeit-Konvertierung
+
+## 💻 Technologie-Stack
+
+- **Frontend**: HTML + CSS + JavaScript
+- **UI Framework**: Bootstrap
+- **Zeit-Bibliothek**: Luxon.js
+- **Styling**: Bootstrap CSS + Custom CSS
+
+## 🛠️ Installation
+
+```bash
+npm install
+npm run dev
+```
+
+## 📦 Verwendung
+
+1. Geben Sie Ihre Zeit ein
+2. Wählen Sie die Ausgangs-Zeitzone
+3. Wählen Sie die Ziel-Zeitzone
+4. Erhalten Sie das umgerechnete Ergebnis
+
+## 📧 Kontakt
+
+Bei Fragen oder Anregungen erreichen Sie mich unter:
+- E-Mail: 95.schulz@googlemail.com
+
+---
+
+Entwickelt mit ❤️ in Deutschland
